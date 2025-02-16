@@ -1,4 +1,3 @@
-
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
@@ -20,7 +19,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
   var categoriesTitleHtml = "snippets/categories-title-snippet.html";
   var categoryHtml = "snippets/category-snippet.html";
   var menuItemsUrl =
-    "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
+    "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
   var menuItemsTitleHtml = "snippets/menu-items-title.html";
   var menuItemHtml = "snippets/menu-item.html";
 
@@ -37,14 +36,14 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     insertHtml(selector, html);
   };
 
-  // Return substitute of '{{propName}}' 
-  // with propValue in given 'string' 
+  // Return substitute of '{{propName}}'
+  // with propValue in given 'string'
   var insertProperty = function (string, propName, propValue) {
     var propToReplace = "{{" + propName + "}}";
     string = string
       .replace(new RegExp(propToReplace, "g"), propValue);
     return string;
-  }
+  };
 
   // Remove the class 'active' from home and switch to Menu button
   var switchMenuToActive = function () {
@@ -55,7 +54,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
     // Add 'active' to menu button if not already there
     classes = document.querySelector("#navMenuButton").className;
-    if (classes.indexOf("active") == -1) {
+    if (classes.indexOf("active") === -1) {
       classes += " active";
       document.querySelector("#navMenuButton").className = classes;
     }
