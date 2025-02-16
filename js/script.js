@@ -155,7 +155,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
     $ajaxUtils.sendGetRequest(
-      menuItemsUrl + categoryShort,
+      menuItemsUrl + categoryShort + ".json",
       buildAndShowMenuItemsHTML);
   };
 
